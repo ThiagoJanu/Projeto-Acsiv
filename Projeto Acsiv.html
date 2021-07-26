@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Acsiv</title>
+  <style>
+      #etiqueta{
+        background-color: #588AE0;
+        text-align: center;
+
+
+      }
+      .principal{
+        background-color: #496799;
+
+        text-align: center;
+      }
+      #dataEmissao{
+        margin-bottom: 10px;
+      }
+      #autenticidade{
+        margin-bottom: 10px;
+      }
+      #semelhanca{
+        margin-bottom: 10px;
+      }
+      #isento{
+        align-items: left;
+      }
+
+
+  </style>
+</head>
+<body> <div class="principal">
+    <h1>Projeto Acsiv</h1>
+    <h2>Insira os dados</h2>
+
+<p id="info">
+      Data da Emissão:
+
+      <input type="date" id="dataEmissao" placeholder="99/99/9999">
+<br>
+      Tipo de Etiqueta:
+      <input type="radio" name="tipo" id="autenticidade"> Autenticidade
+
+      <input type="radio" name="tipo" id="semelhanca"> Semelhança
+<br>  
+
+    Quantidade de Etiquetas: <br>
+<input type="number" id="quant">
+
+<br>
+<div id="nomecpf">
+    Nome: <input type="text" id="nome">
+    CPF: <input type="number" id="cpf">
+</div>
+<p></p>
+    Isento  <input type="checkbox" id="isento">
+<br><br>
+<button onclick="gerar()"> Enviar </button>
+</p>
+<p id="etiqueta" name="etiqueta"></p>
+</div>
+
+
+<script>
+      function gerar(){
+        let data = document.querySelector("input#dataEmissao")
+          let aut = document.querySelector("input#autenticidade")
+            let sem = document.querySelector("input#semelhanca")
+              let quant = document.querySelector("input#quant")
+                let isento = document.querySelector("input#isento")
+              let nome = document.querySelector("input#nome")
+            let cpf = document.querySelector("input#cpf")
+          let etiqueta = document.querySelector("p#etiqueta")
+        let = tipo = ""
+      let = emolum = ""
+   
+      
+if(aut.checked == true){
+        tipo = "Autenticidade"
+}
+  else if (sem.checked == true){
+      tipo = "semelhança"
+  }
+    else {
+      tipo = "TIPO NÃO SELECIONADO"
+    }
+
+
+if(isento.checked == true){
+    emolum = "Isento de Emolumentos"
+}
+  else {
+    emolum = "Emol: R$ 5,82 TFJ R$ 1,81 "
+  }
+
+
+etiqueta.innerHTML = `<p> Reconheço por ${tipo} a(s) firma(s) de: <br> ${nome.value}
+  portador do CPF: ${cpf.value} <br> Pará de Minas, ${data.value} <br> ${emolum}<p>`
+
+var cond = 1
+  while(cond < quant.value){
+    etiqueta.innerHTML += `<p> Reconheço por ${tipo} a(s) firma(s) de: <br> ${nome.value}
+      portador do CPF: ${cpf.value}<br> Pará de Minas, ${data.value} <br> ${emolum}<p>`
+        cond++
+}
+
+
+         console.log("Autenticidade")
+           console.log("autenticacao.checked")
+             console.log("Semelhança")
+                console.log("semelhanca.checked")
+             console.log("Isento")
+           console.log("isento.checked")
+         console.log("quant.value")   
+        
+        
+}
+
+    </script>
+</body>
+</html>
